@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="/static/css/video-js.min.css" rel="stylesheet">
+<script src="/static/js/video.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ videoname }}</title>
+</head>
+<body>
+    <video class="video-js" controls type="video/mp4" preload="auto" data-setup="{}">
+
+        <source src="/static/video/{{ videoname }}.mp4"/>
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>

@@ -1,0 +1,55 @@
+#teco_header ul{
+    list-style-type: none;
+    text-align: center;
+}
+#teco_header li{
+    display: inline;
+}
+#teco_header a:link,a:visited{
+    font-weight:bold;
+    color:#FFFFFF;
+    background-color: #98bf21;
+    text-align:center;
+    padding:6px;
+    text-decoration:none;
+    border-radius: 7px;
+}
+#teco_header a:hover{
+    background-color:#7A991A;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: #99a2aa;
+    padding-top: 20px;
+    font-size: 12px;
+    width: 100%;
+}
+
+.tips{
+    margin: 10px;
+    text-align: left;
+}
+
+.cards{
+    float: left;
+    margin: 10px;
+}
+
+div.videoCard{
+    position: relative;
+    width: 230px;
+    height: 148px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+div.videoCard{
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+div.videoCard a{
+    text-align: left;
+}

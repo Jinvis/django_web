@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="text/javascript">
+    var videolist = {{ videolist |safe}}
+    function addElementVideo(obj)
+    {
+        var parent = document.getElementById(obj);
+        console.log(videolist);
+        for(var i=0; i<videolist.length ; i++)
+        {
+            videoname = videolist[i];
+            if(videoname.indexOf(".mp4") == -1)
+                continue;
+            videopath = "polls/video" + videoname;
+            var videoCard = document.createElement("div");
+            videoCard.setAttribute("class","videoCard");
+
+            var videolink = document.createElement("a");
+            videolink.setAttribute("href",videopath.replace(".mp4",""));
+            var video = document.createElement("video");
+            video.setAttribute("width","240");
+            video.setAttribute("height","100");
+            //child.setAttribute("controls","false");
+            video.setAttribute("type","video/mp4");
+            video.setAttribute("preload","auto");
+            var videosrc = document.createElement("source");
+            video.setAttribute("src", "/static/video" + videolist[i]);
+            video.appendChild(videosrc);
+            var node=document.createTextNode("Your browser does not support the video tag.");
+            video.appendChild(node);
+
+            var nameText=document.createElement("p");
+            nameText.innerText = videoname.replace("\\","").replace(".mp4","");
+            videolink.appendChild(video);
+            videolink.appendChild(nameText);
+            videoCard.appendChild(videolink);
+
+            parent.appendChild(videoCard);
+        }
+    };
+    function loads(){
+        console.log("start to add");
+        addElementVideo("myVideos");
+    };
+
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>TECO</title>
+    <link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/teco.css"/>
+</head>
+<body onload="loads()">
+    <div id="teco_header">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">高中</a></li>
+            <li><a href="#">初中</a></li>
+            <li><a href="#">首页</a></li>
+        </ul>
+    </div>
+    <div id="Video List" class="mainContainer">
+        this is container<br/>
+        <div class="videoList" id="myVideos"></div>
+    </div>
+    <div id="teco_footer" class="footer">
+        <div class="tips">Teco</div>
+        <div class="cards">About us</div>
+        <div class="cards">Contact us</div>
+        <div class="cards">Join us</div>
+    </div>
+</body>
+</html>
